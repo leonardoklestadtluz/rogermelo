@@ -44,8 +44,8 @@ argumentos os números do array.
 
 A invocação da função deve retornar 35.
 */
-const array = [5, 7]
-const resultado = multiplicaParam(array[0], array[1])
+const numeros = [5, 7]
+const resultado = multiplicaParam(numeros[0], numeros[1])
 // console.log(`Resultado: ${resultado}`)
 
 
@@ -65,7 +65,10 @@ A invocação da função que você criou no exercício 01 deve
 retornar 27.
 */
 const pegaNumerosImpares = () => [5, 3, 9]
-const resultado2 = multiplicaParam(3, 9)
+const resultado2 = multiplicaParam(
+  pegaNumerosImpares()[1],
+  pegaNumerosImpares()[2]  
+)
 // console.log(`Resultado: ${resultado2}`)
 
 
@@ -91,7 +94,10 @@ A invocação da função que você criou no exercício 01 deve
 retornar 12.
 */
 const pegaObj = () => [{numero: 2}, {numero: 4}, {numero: 6}]
-const resultado3 = multiplicaParam(2, 6)
+const resultado3 = multiplicaParam(
+  pegaObj()[0].numero,
+  pegaObj()[2].numero
+)
 // console.log(`Resultado: ${resultado3}`)
 
 
@@ -129,16 +135,15 @@ const pegaPontuacao = (respostasUsuario) => {
   let pontuacao = 0
 
   if (ultimoItemArray === 'A') {
-    pontuacao = 1 + 50
+    pontuacao += 50
   } else if (ultimoItemArray === 'C') {
-    pontuacao = 2 + 25
+    pontuacao += 25
   } else {
-    pontuacao = 4 + 100
+    pontuacao += 100
   }
   return pontuacao
 }
 // console.log(`Resposta do usuário: ${pegaPontuacao('A')}`)
-
 
 
 /*
@@ -152,7 +157,7 @@ A invocação de pegaPontuacao deve retornar 100.
 */
 const respostasUsuario = pegaRespostasUsuario()
 pegaPontuacao(respostasUsuario)
-// console.log(pegaPontuacao())
+// console.log(`Pontuação do usuário: ${pegaPontuacao(respostasUsuario)}`)
 
 
 /*
@@ -168,3 +173,15 @@ A palavra-chave return pode ser inserida dentro de bloco de if, else if ou else.
 
 O único requisito para você usar return é ele estar dentro de uma função.
 */
+const pegaPontuacao2 = (respostasUsuario) => {
+  const ultimoItemArray = respostasUsuario[3]
+  const pontuacao = 0
+
+  if (ultimoItemArray === 'A') {
+    return pontuacao + 50
+  } else if (ultimoItemArray === 'C') {
+    return pontuacao + 25
+  } else {
+    return pontuacao +100
+  }
+}
