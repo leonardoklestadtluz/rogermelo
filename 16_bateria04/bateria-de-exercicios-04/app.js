@@ -132,14 +132,14 @@ Na última linha dentro do bloco da função, retorne pontuacao.
 */
 const pegaPontuacao = (respostasUsuario) => {
   const ultimoItemArray = respostasUsuario[3]
-  let pontuacao = 0
+  const pontuacao = 0
 
   if (ultimoItemArray === 'A') {
-    pontuacao += 50
+    return pontuacao + 50
   } else if (ultimoItemArray === 'C') {
-    pontuacao += 25
+    return pontuacao + 25
   } else {
-    pontuacao += 100
+    return pontuacao + 100
   }
   return pontuacao
 }
@@ -175,13 +175,15 @@ O único requisito para você usar return é ele estar dentro de uma função.
 */
 const pegaPontuacao2 = (respostasUsuario) => {
   const ultimoItemArray = respostasUsuario[3]
-  const pontuacao = 0
-
+  
   if (ultimoItemArray === 'A') {
-    return pontuacao + 50
-  } else if (ultimoItemArray === 'C') {
-    return pontuacao + 25
-  } else {
-    return pontuacao +100
+    return + 50
   }
+  
+  if (ultimoItemArray === 'C') {
+    return + 25
+  } 
+  
+  return +100
 }
+console.log(`Resultado imutável: ${pegaPontuacao2(respostasUsuario)}`)
