@@ -1,5 +1,5 @@
 /*
-Durante a resolução desta bateria de exercícios você verá erros no console do navegador. Fazer os erros desaparecerem é parte da resolução dos exercícios. 
+Durante a resolução desta bateria de exercícios você verá erros no console do navegador. Fazer os erros desaparecerem é parte da resolução dos exercícios.
 
 Importante: o número da linha na qual o erro é lançado é exibida ao lado da mensagem no console. Caso não consiga descobrir como resolver o erro, comente a linha que está lançando o erro e vá para o próximo exercício.
 */
@@ -9,7 +9,7 @@ Importante: o número da linha na qual o erro é lançado é exibida ao lado da 
 
 A expressão abaixo da declaração do array está lançando um erro no console.
 
-Conserte o erro. 
+Conserte o erro.
 
 Após consertar, a expressão deve retornar o número 7.
 */
@@ -26,7 +26,7 @@ const retorno = objs[3].x
 /*
 02
 
-A expressão abaixo da declaração do objeto está lançando um erro no console. 
+A expressão abaixo da declaração do objeto está lançando um erro no console.
 
 Faça os 2 únicos ajustes necessários para consertar o erro.
 
@@ -35,10 +35,10 @@ Após consertar, a expressão deve retornar o caractere w.
 
 const obj = {
   x: () => 'y',
-  y: function () { 
+  y: function () {
     return 'w'
   },
-  w () { 
+  w () {
     return 'x'
   }
 }
@@ -51,11 +51,11 @@ const retorno2 = obj.y()
 
 Crie uma função que retorna um boolean indicando se o argumento que a função recebeu é null.
 
-Invoque a função 3x. A cada invocação, o argumento deve ser um valor diferente do anterior. 
+Invoque a função 3x. A cada invocação, o argumento deve ser um valor diferente do anterior.
 
 Faça com que uma das invocações retorne true.
 */
-const retornaBoolean = (arg) => { return arg }
+const retornaBoolean = (arg) => arg === null
 // console.log(`Retorno de boolean: ${retornaBoolean(true)}`)
 // console.log(`Retorno de boolean: ${retornaBoolean(null)}`)
 // console.log(`Retorno de boolean: ${retornaBoolean(true)}`)
@@ -74,7 +74,7 @@ Crie uma função com as seguintes características:
 
 3. O retorno da função deve ser a multiplicação dos 3 argumentos.
 */
-const umaFuncao = (arg1, arg2, arg3) => {
+const multiplicar = (arg1, arg2, arg3) => {
   const mensagem = 'Insira todos os argumentos!'
   if (arg1 === undefined || arg2 === undefined || arg3 === undefined) {
     return mensagem
@@ -82,33 +82,29 @@ const umaFuncao = (arg1, arg2, arg3) => {
 
   return arg1 * arg2 * arg3
 }
-// console.log('Arg1 * Arg2 * Arg3 =', umaFuncao(5, 7, 9))
+// console.log('Arg1 * Arg2 * Arg3 =', multiplicar(5, 7, 9))
 
 
 /*
 05
 
-Descomente o console.log do código abaixo. 
+Descomente o console.log do código abaixo.
 
-Ifs aninhados tendem a deixar a leitura do código mais complexa. Por isso, sua missão neste exercício é refatorar a função abaixo para que ela tenha apenas um if e continue funcionando como já está. 
+Ifs aninhados tendem a deixar a leitura do código mais complexa. Por isso, sua missão neste exercício é refatorar a função abaixo para que ela tenha apenas um if e continue funcionando como já está.
 
-Deixe a expressão/condição do if mais fácil de ser lida. 
+Deixe a expressão/condição do if mais fácil de ser lida.
 
-Não mexa na invocação da função. Sua refatoração deve envolver apenas as linhas de código dentro do bloco da função. 
+Não mexa na invocação da função. Sua refatoração deve envolver apenas as linhas de código dentro do bloco da função.
 */
 
 const y = w => {
-  if (w[1] === 3) {
+  const ehIgualFalse = w[2] === false
+  const ehIgualB = 'b' === w[0]
+  const ehIgual3 = w[1] === 3
+
+  if ( ehIgualFalse && ehIgualB && ehIgual3 ) {
     // console.log('Executou o if!')
   }
-
-  // if (w[2] === false) { // console.log(w)
-  //   if ('b' === w[0]) {
-  //     if (w[1] === 3) {
-  //       // console.log('Executou if!')
-  //     }
-  //   }
-  // }
 }
 
 const a = 'b'
@@ -124,39 +120,54 @@ Crie uma função com as seguintes características:
 
 1. A função deve receber 3 argumentos.
 
-2. Se somente um argumento for passado, retorne o valor do 
+2. Se somente um argumento for passado, retorne o valor do
 argumento.
 
-3. Se dois argumentos forem passados, retorne a soma dos 
+3. Se dois argumentos forem passados, retorne a soma dos
 dois argumentos.
 
-4. Se todos os argumentos forem passados, retorne a soma do 
+4. Se todos os argumentos forem passados, retorne a soma do
 primeiro com o terceiro.
 
-5. Se nenhum argumento for passado, retorne o valor booleano 
+5. Se nenhum argumento for passado, retorne o valor booleano
 false.
 
-6. E ainda, se nenhuma das condições acima forem atendidas, 
+6. E ainda, se nenhuma das condições acima forem atendidas,
 retorne null.
 */
+const somar = (arg4, arg5, arg6) => {
+  if (arg4 !== undefined && arg5 === undefined && arg6 === undefined) {
+    return arg4
+  }
+
+  if (arg4 !== undefined && arg5 !== undefined && arg6 === undefined) {
+    return arg4 + arg5
+  }
+
+  if (arg4 !== undefined && arg5 !== undefined && arg6 !== undefined) {
+    return arg4 + arg6
+  }
+
+  if (arg4 === undefined && arg5 === undefined && arg6 === undefined) {
+    return false
+  }
+
+  return null
+}
+// console.log(somar(0))
 
 /*
 07
 
-Invoque a função acima testando as possibilidades abaixo: 
+Invoque a função acima testando as possibilidades abaixo:
 
 - Com nenhum argumento;
 - Com um argumento;
 - Com dois argumentos;
 - Com três argumentos.
 */
-const funcao = (arg4, arg5, arg6) => {
-  if (arg4 === undefined && arg5 !== undefined && arg6 !== undefined) {
-    return arg4
-  }
+console.log(somar())
+console.log(somar(1))
+console.log(somar(1, 2))
+console.log(somar(1, 2, 3))
 
-  // if (arg4 !== undefined && arg5 === undefined && arg6 !== undefined) {
-  //   return 
-  // }
-}
-console.log(funcao(2))
