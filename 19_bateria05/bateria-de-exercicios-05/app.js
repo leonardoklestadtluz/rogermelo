@@ -74,14 +74,19 @@ Crie uma função com as seguintes características:
 
 3. O retorno da função deve ser a multiplicação dos 3 argumentos.
 */
+const ehUndefined = arg => arg === undefined
+
 const multiplicar = (arg1, arg2, arg3) => {
   const mensagem = 'Insira todos os argumentos!'
-  if (arg1 === undefined || arg2 === undefined || arg3 === undefined) {
+  const temArgumento = ehUndefined(arg1) || ehUndefined(arg2) || ehUndefined(arg3)
+  if ( temArgumento ) {
     return mensagem
   }
 
   return arg1 * arg2 * arg3
 }
+// console.log('Arg1 * Arg2 * Arg3 =', multiplicar())
+// console.log('Arg1 * Arg2 * Arg3 =', multiplicar(5, 7))
 // console.log('Arg1 * Arg2 * Arg3 =', multiplicar(5, 7, 9))
 
 
@@ -136,19 +141,24 @@ false.
 retorne null.
 */
 const somar = (arg4, arg5, arg6) => {
-  if (arg4 !== undefined && arg5 === undefined && arg6 === undefined) {
+  const temSoArg1 = arg4 !== undefined && ehUndefined(arg5) && ehUndefined(arg6)
+  const temSoArg1eArg2 = arg4 !== undefined && arg5 !== undefined && ehUndefined(arg6)
+  const temTodosArgs = arg4 !== undefined && arg5 !== undefined && arg6 !== undefined
+  const temNenhumArg = ehUndefined(arg4) && ehUndefined(arg5) && ehUndefined(arg6)
+
+  if ( temSoArg1 ) {
     return arg4
   }
 
-  if (arg4 !== undefined && arg5 !== undefined && arg6 === undefined) {
+  if ( temSoArg1eArg2 ) {
     return arg4 + arg5
   }
 
-  if (arg4 !== undefined && arg5 !== undefined && arg6 !== undefined) {
+  if ( temTodosArgs ) {
     return arg4 + arg6
   }
 
-  if (arg4 === undefined && arg5 === undefined && arg6 === undefined) {
+  if ( temNenhumArg ) {
     return false
   }
 
@@ -170,4 +180,4 @@ console.log(somar())
 console.log(somar(1))
 console.log(somar(1, 2))
 console.log(somar(1, 2, 3))
-
+console.log(somar(undefined, 2, 3))
