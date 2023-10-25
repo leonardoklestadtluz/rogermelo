@@ -1,9 +1,7 @@
 /*
 Apenas relembrando, por que é importante:
 
-Se o exercício não especificou nome do identificador 
-(variável, parâmetro, propriedade, função), declare ele com 
-o nome de sua preferência.
+Se o exercício não especificou nome do identificador (variável, parâmetro, propriedade, função), declare ele com o nome de sua preferência.
 
 Alguns exercícios contém dicas nas últimas linhas. 
 
@@ -18,16 +16,15 @@ expressões das consts dentro da função somar.
 
 Dica:
 
-Há um operador que pode ser usado em conjunto com a 
-invocação da função eUndefined.
+Há um operador que pode ser usado em conjunto com a invocação da função eUndefined.
 */
 
 const eUndefined = arg => arg === undefined
 
 const somar = (arg1, arg2, arg3) => {
-  const temSoArg1 = arg1 !== undefined && eUndefined(arg2) && eUndefined(arg3)
-  const temSoArg1E2 = arg1 !== undefined && arg2 !== undefined && eUndefined(arg3)
-  const temTodosArgs = arg1 !== undefined && arg2 !== undefined && arg3 !== undefined
+  const temSoArg1 = eUndefined(arg1) !== undefined && eUndefined(arg2) && eUndefined(arg3)
+  const temSoArg1E2 = eUndefined(arg1) !== undefined && eUndefined(arg2) !== undefined && eUndefined(arg3)
+  const temTodosArgs = eUndefined(arg1) !== undefined && eUndefined(arg2) !== undefined && eUndefined(arg3) !== undefined
   const temNenhumArg = eUndefined(arg1) && eUndefined(arg2) && eUndefined(arg3)
 
   if (temSoArg1) {
@@ -49,11 +46,11 @@ const somar = (arg1, arg2, arg3) => {
   return null
 }
 
-somar(1)
-somar(1, 2)
-somar(1, 2, 3)
-somar()
-somar(undefined, 1, 2)
+// console.log(somar(1))
+// console.log(somar(1, 2))
+// console.log(somar(1, 2, 3))
+// console.log(somar())
+// console.log(somar(undefined, 1, 2))
 
 /*
 02
@@ -72,6 +69,16 @@ Dica:
 
 Você pode usar um loop dentro da função. 
 */
+const pegaNomeConcurso = id => {
+  
+  for (let i = 0; i < concursos.length; i++) {
+    if (id === concursos[i].id) {
+      return concursos[i].nome
+    }
+
+    return 'Concurso não encontrado!'
+  }
+}
 
 const concursos = [
   { id: 'ysdyhsa8a', nome: 'Concurso Loteria XPTO' },
@@ -81,41 +88,45 @@ const concursos = [
   { id: 'd687jsfke', nome: 'Concurso Programadores Garotos de Programa' },
 ]
 
+for (let i = 0; i < concursos.length; i++) {
+  // console.log(pegaNomeConcurso(concursos[i].id))
+}
+// console.log(pegaNomeConcurso())
+
 /*
 03
 
 Refatore a função abaixo para apenas uma única linha.
 */
 
-const eAMelhorSerie = serie => {
-  if (serie === 'Breaking Bad') {
-    return '✅ Sim'
-  }
-  
-  return '❌ Não'
-}
-
-eAMelhorSerie('Breaking Bad')
-eAMelhorSerie('Game of Thrones')
+const eAMelhorSerie = serie => serie === 'Breaking Bad' ? '✅ Sim' : '❌ Não'
+// console.log(eAMelhorSerie('Breaking Bad'))
+// console.log(eAMelhorSerie('Game of Thrones'))
 
 /*
 04
 
-Crie uma função que retorna a média do total de custos do 
-array abaixo.
+Crie uma função que retorna a média do total de custos do array abaixo.
 
 A função deve receber o array custos como argumento. 
 
-Para testar a invocação da função, exiba a seguinte 
-mensagem no console:
+Para testar a invocação da função, exiba a seguinte mensagem no console:
 
 `A média é ${suaFuncao(custos)}`
 
 Dica:
 
-Para obter a média, basta dividir a soma total dos custos 
-pela quantidade de meses.
+Para obter a média, basta dividir a soma total dos custos pela quantidade de meses.
 */
+const mediaTotalCustos = (custos) => {
+  let media = 0
+
+  for (let i = 0; i < custos.length; i++) {
+    media += custos[i].custoTotal
+  }
+
+  return media / custos.length
+}
 
 const custos = [
   { mes: 'janeiro', custoTotal: 5672 },
@@ -123,7 +134,11 @@ const custos = [
   { mes: 'março', custoTotal: 5347 },
   { mes: 'abril', custoTotal: 6325 },
   { mes: 'maio', custoTotal: 6748 },
-]
+];
+
+const frase = `A média é ${mediaTotalCustos(custos)}`
+
+// console.log(frase)
 
 /*
 05
@@ -136,8 +151,21 @@ A função deve retornar um array.
 
 Teste a função utilizando o array abaixo.
 */
+const arrayPalavras = (palavras) => {
+  let palavrasFiltradas = []
+  
+  for (let i = 0; i < palavras.length; i++) {
+    if (palavras[i].length > 3) {
+      palavrasFiltradas.push(palavras[i])
+    }
+  }
+
+  return palavrasFiltradas
+}
 
 const palavras = ['ovo', 'áudio', 'oi', 'telefones', 'ovni']
+
+// console.log(arrayPalavras(palavras))
 
 /*
 06
@@ -165,4 +193,4 @@ const dobrar = numeros => {
   }
 }
 
-// console.log(dobrar([1, 2, 3]))
+console.log(dobrar([1, 2, 3]))
