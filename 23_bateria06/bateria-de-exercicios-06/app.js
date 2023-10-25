@@ -189,8 +189,8 @@ const dobrar = numeros => {
 
   for (let i = 0; i < numeros.length; i++) {
     numerosDobrados.push(numeros[i] * 2)
-    return numerosDobrados
   }
+  return numerosDobrados
 }
 
 console.log(dobrar([1, 2, 3]))
