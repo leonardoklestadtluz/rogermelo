@@ -1,8 +1,4 @@
 // MÉTODO EVERY
-
-/**
- * os parâmetros index e array são opcionais
- */
 const strings = ['1', '1', 1]
 const resultado = strings.every((string, index, array) => string === '1')
 console.log(resultado)
