@@ -18,11 +18,7 @@ palavra "certo" ao invés de "serto".
 A função deve retornar a string 'Tá certo?'.
 */
 
-const consertaPalavra = str => {
-  str[3] = 'c'
-  return str
-}
-
+const consertaPalavra = (str) => str.replace('serto', 'certo')
 // console.log(consertaPalavra('Tá serto?'))
 
 /* 
@@ -33,45 +29,36 @@ linhas mas continue funcionando como já está.
 
 Use as invocações abaixo da função para testá-la. 
 */
+const multiplicar = (a, b, c) => [a, b, c]
+  .includes(undefined) ? 'Insira todos os argumentos!' : a * b * c
 
-const eUndefined = arg => arg === undefined
-
-const multiplicar = (a, b, c) => {
-  if (eUndefined(a) || eUndefined(b) || eUndefined(c)) {
-    return 'Insira todos os argumentos!'
-  }
-
-  return a * b * c
-}
-
-multiplicar()
-multiplicar(1)
-multiplicar(1, 2)
-multiplicar(1, 2, 3)
+// console.log(multiplicar())
+// console.log(multiplicar(1))
+// console.log(multiplicar(1, 2))
+// console.log(multiplicar(1, 2, 3))
 
 /*
 03
 
 Refatore a expressão da const temNenhumArg. 
 
-É possível fazer com que essa expressão fique um pouquinho 
-menor e não use o operador &&. 
+É possível fazer com que essa expressão fique um pouquinho menor e não use o operador &&. 
 
-Após refatorar, descomente os console.log abaixo da função 
-para testá-la. A invocação somar() precisa continuar 
+Após refatorar, descomente os console.log abaixo da função para testá-la. A invocação somar() precisa continuar 
 retornando false. 
 
 Dica:
 
-Você pode usar outra forma de verificar se todos os 
-argumentos são undefined.
+Você pode usar outra forma de verificar se todos os argumentos são undefined.
 */
+const eUndefined = arg => arg === undefined
 
 const somar = (arg1, arg2, arg3) => {
   const temSoArg1 = !eUndefined(arg1) && eUndefined(arg2) && eUndefined(arg3)
   const temSoArg1E2 = !eUndefined(arg1) && !eUndefined(arg2) && eUndefined(arg3)
   const temTodosArgs = !eUndefined(arg1) && !eUndefined(arg2) && !eUndefined(arg3)
-  const temNenhumArg = eUndefined(arg1) && eUndefined(arg2) && eUndefined(arg3)
+
+  const temNenhumArg = [arg1, arg2, arg3].every(undefined)
 
   if (temSoArg1) {
     return arg1
@@ -114,15 +101,12 @@ Você pode substituir o for loop.
 
 const dobrar = numeros => {
   const numerosDobrados = []
-
-  for (let i = 0; i < numeros.length; i++) {
-    numerosDobrados.push(numeros[i] * 2)
-  }
-
+  numeros.forEach(numero => numerosDobrados.push(numero * 2))
   return numerosDobrados
 }
 
-dobrar([1, 2, 3])
+// console.log(dobrar([1, 2, 3]))
+// console.log(dobrar([20, 30, 40]))
 
 /* 
 05
@@ -139,23 +123,9 @@ continuar retornando true.
 */
 
 const versaoOficial = 7
-
-const saoMesmaVersao = obj => {
-  let mesmaVersao = true
-
-  obj.versoes.forEach(arrVersao => {
-    const versao = arrVersao[0]
-
-    if (versao !== versaoOficial) {
-      mesmaVersao = false
-    }
-  })
-
-  return mesmaVersao
-}
-
-saoMesmaVersao({ versoes: [[7], [8], [9]]})
-saoMesmaVersao({ versoes: [[7], [7], [7]]})
+const saoMesmaVersao = obj => obj.versoes.every(arr => arr[0] === versaoOficial)
+// console.log(saoMesmaVersao({ versoes: [[7], [8], [9]]}))
+// console.log(saoMesmaVersao({ versoes: [[7], [7], [7]]}))
 
 /*
 06
@@ -182,6 +152,9 @@ const arquivos = [
   ...perigo.git.arquivosModificados
 ]
 
+const saoArquivosJs = arquivos.every(arquivo => arquivo.includes('js'))
+// console.log(saoArquivosJs)
+
 /*
 07
 
@@ -198,6 +171,10 @@ Não use for loop nem forEach.
 const bandasAnos60 = ['Pink Floyd', 'Deep Purple', 'Black Sabbath', 'Led Zeppelin']
 const bandasAnos70 = ['Queen', 'Eagles', 'Aerosmith', 'AC/DC', 'Journey', 'Kiss']
 
+const juntar = (arr1, arr2) => [...arr1, arr2]
+const bandas = juntar(bandasAnos60, bandasAnos70)
+// console.log(bandas)
+
 /*
 08
 
@@ -212,10 +189,7 @@ O novo objeto que a função retornar deve conter as mesmas
 propriedades do objeto original (id e nome). 
 */
 
-const mudaNomeProduto = produto => {
-  produto.nome += ' - PlayStation 5'
-  return produto
-}
+const mudaNomeProduto = produto => ({ ... produto, nome: produto.nome + ' - Playstation 5' })
 
 const produtos = [
   { id: 'fd-f9g', nome: 'Marvel\'s Spider-Man 2' },
@@ -226,3 +200,7 @@ const produtos = [
 ]
 
 const novoProduto = mudaNomeProduto(produtos[0])
+
+// console.log('É o mesmo objeto?', produtos[0] === novoProduto)
+// console.log('Objeto original:', produtos[0])
+// console.log('Novo objeto:', novoProduto)
