@@ -42,10 +42,18 @@ const person = {
 
 const person2 = {
   ...person,
-  name: 'Joana Cruz'
+  name: 'Joana Cruz',
+  address: {
+    ...person.address,
+    street: 'Rua Rio de Janeiro'
+  }
 }
 
-person2.address.street = 'Rua Rio de Janeiro'
+// console.log(`Rea de ${person.name}: ${person.address.street}`)
+// console.log(`Rea de ${person2.name}: ${person2.address.street}`)
+// console.log(person.address.street !== person2.address.street)
+// console.log(person.address !== person2.address)
+
 
 /*
 02
@@ -73,6 +81,24 @@ const getHeroes = () => [
   { name: 'Spider-Man', realName: 'Peter Parker', gender: 'Male' }
 ]
 
+const getMessage = arr => {
+  let message = ''
+
+  arr.forEach(({ name, realName, gender }, i) => {
+    const preposition = gender === 'Male' ? 'do' : 'da'
+    const heroGender = gender === 'Male' ? 'herói' : 'heroina'
+
+    message += `O nome ${preposition} ${heroGender} no ${i + 1}º item é ${name} e seu nome verdadeiro é ${realName}.\n`
+  })
+
+  return message
+}
+
+const heroes = getHeroes()
+const message = getMessage(heroes)
+
+// console.log(message)
+
 /*
 03
 
@@ -84,8 +110,11 @@ do primeiro objeto do array e code do segundo objeto.
 
 Evite a repetição de "arr[index]" em seu código.
 */
+const multiply = ([ { id }, { code } ]) => id * code
 
 const objs = [{ id: 3, code: 31 }, { id: 7, code: 21 }]
+
+// console.log(multiply(objs))
 
 /*
 04
@@ -106,10 +135,12 @@ const getfruitBenefits = fruit => {
     uva: 'Rica em carboidratos, altamente energética.'
   }
 
-  return fruits.fruit || 'Não há informações da fruta =/'
+  return fruits[fruit] || 'Não há informações da fruta =/'
 }
 
 const benefits = getfruitBenefits('uva')
+
+// console.log(benefits)
 
 /*
 05
@@ -134,7 +165,7 @@ const updateInfo = product => {
   const action = name.includes('size-') ? 'UPDATE_SIZE' : 'UPDATE_FIELD'
   const fieldName = name.includes('size-') ? name.replace('size-', '') : name
 
-  return { type: action, payload: { fieldName: value } }
+  return { type: action, payload: { [fieldName]: value } }
 }
 
 const product = updateInfo({ 
@@ -143,6 +174,8 @@ const product = updateInfo({
     value: 'Jaqueta Trucker Jeans Com Recortes E Forro De Sherpa Azul Claro' 
   }
 })
+
+// console.log(product)
 
 /*
 06
@@ -153,22 +186,22 @@ fizemos anteriormente.
 Renomeie o que está em português para inglês.
 */
 
-const pegaRespostasUsuario = () => ['A', 'B', 'A', 'D']
+const getUserAnswers = () => ['A', 'B', 'A', 'D']
 
-const pegaPontuacao = respostasUsuario => {
-  const ultimaResposta = respostasUsuario[3]
+// const getScore = userAnswers => {
+//   const lastAnswer = userAnswers[3]
 
-  if (ultimaResposta === 'A') {
-    return 50
-  } else if (ultimaResposta === 'C') {
-    return 25
-  } else {
-    return 100
-  }
-}
+//   if (lastAnswer === 'A') {
+//     return 50
+//   } else if (lastAnswer === 'C') {
+//     return 25
+//   } else {
+//     return 100
+//   }
+// }
 
-const respostasUsuario = pegaRespostasUsuario()
-const pontuacao = pegaPontuacao(respostasUsuario)
+// const userAnswers = getUserAnswers()
+// const score = getScore(userAnswers)
 
 /*
 07
@@ -181,3 +214,14 @@ Dicas:
 Você pode substituir if, else if e else por uma estrutura 
 de dados e acessar os dados de forma dinâmica.
 */
+
+const getScore = userAnswers => {
+  const lastAnswer = userAnswers[userAnswers.length - 1]
+
+  return { A: 50, C: 25 }[lastAnswer] || 100
+}
+
+const userAnswers = getUserAnswers()
+const score = getScore(userAnswers)
+
+// console.log(score)
