@@ -21,7 +21,8 @@ Vincule este arquivo (app.js) ao index.html desta mesma pasta.
 Conserte o nome da let abaixo.
 */
 
-let numero impar = 7
+let numeroImpar = 7
+// console.log(numeroImpar)
 
 /* 
 03
@@ -32,7 +33,8 @@ Não modifique a declaração da let.
 
 O código que você escrever deve estar abaixo deste comentário.
 */
-
+numeroImpar = 3
+// console.log(numeroImpar)
 
 
 /*
@@ -43,8 +45,8 @@ Faça a const abaixo ser exibida no console do navegador.
 Após ver o valor da const no console, remova do código o comando 
 que exibiu a const no console.
 */
-
 const meExiba = 123
+// console.log(meExiba)
 
 /*
 05
@@ -62,8 +64,8 @@ abreviações podem prejudicar o entendimento de um código.
 O nome correto da const (sem abreviação) será revelado na próxima 
 aula. 
 */
-
 const np = 2
+// console.log(np)
 
 /* 
 06
@@ -79,10 +81,9 @@ do que deve ser ajustado.
 Dica: o ajuste deve ser feito apenas na linha da declaração de 
 "videoGame". 
 */
-
-const videoGame = 'Xbox'
-
+let videoGame = 'Xbox'
 videoGame = 'Playstation'
+// console.log(videoGame)
 
 /*
 07
@@ -93,7 +94,6 @@ const "final" armazenou?
 Após calcular o resultado em sua mente, exiba a const "final" no 
 console para conferir se o valor que você imaginou está certo. 
 */
-
 const x = 0
 let y = 3
 let w = x
@@ -102,14 +102,16 @@ w = 15 - y
 y = 5
 
 const final = x + y + 7 + w
+//            0   5       12 = 24 
+// console.log(final)
 
 /*
 08
 
 Conserte a declaração da variável abaixo. 
 */
-
-umNumeroQualquer = 9
+const umNumeroQualquer = 9
+// console.log(umNumeroQualquer)
 
 /*
 09
@@ -140,15 +142,18 @@ para gerar o valor da constante "sigla".
 */
 
 const curso = 'Curso de JavaScript Roger Melo'
+const sigla = 'CJRM'
+// console.log(sigla[0] + sigla[1] + sigla[2] + sigla[3])
 
 /*
 10
 
 Conserte o que está errado na string abaixo.
 */
-
 const likes = 197
-const mensagem = 'Sua foto recebeu ${likes} likes'
+const mensagem = `Sua foto recebeu ${likes} likes`
+// console.log(mensagem)
+
 
 /*
 11
@@ -165,7 +170,13 @@ Esta const deve armazenar um objeto com as seguintes propriedades:
 Os valores das propriedades acima ficam ao seu critério. Use uma 
 série que você curta =)
 */
-
+const serie = {
+  nome: 'Fear The Walking Dead',
+  temporadas: 6,
+  episodios: 350,
+  emissora: 'AMC'
+}
+// console.log(serie)
 
 
 /*
@@ -174,7 +185,13 @@ série que você curta =)
 Obtenha o valor de cada propriedade do objeto "serie" e exiba-o 
 no console.
 */
-
+const serieUm = `
+  Nome: ${serie.nome}
+  Temporadas: ${serie.temporadas}
+  Episódios: ${serie.episodios}
+  Emissora:${serie.emissora}
+`
+// console.log(serieUm)
 
 
 /*
@@ -184,3 +201,17 @@ Sobrescreva o valor de cada propriedade do objeto.
 
 Após sobrescrever, exiba o novo valor de cada uma no console.
 */
+const serieDois = {
+  nome: 'Lupin',
+  Temporadas: 3,
+  Episódios: 60,
+  Emissora: 'Netflix'
+}
+
+const resposta = `
+  Nome: ${serieDois.nome}
+  Temporadas: ${serieDois.temporadas}
+  Episódios: ${serieDois.episodios}
+  Emissora:${serieDois.emissora}
+`
+console.log(resposta)
