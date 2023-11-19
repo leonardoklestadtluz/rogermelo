@@ -17,7 +17,7 @@ Vincule este arquivo (app.js) ao index.html desta mesma pasta.
 
 /*
 02
-
+ 
 Conserte o nome da let abaixo.
 */
 
@@ -64,8 +64,8 @@ abreviações podem prejudicar o entendimento de um código.
 O nome correto da const (sem abreviação) será revelado na próxima 
 aula. 
 */
-const np = 2
-// console.log(np)
+const numeroPar = 2
+// console.log(numeroPar)
 
 /* 
 06
@@ -142,8 +142,8 @@ para gerar o valor da constante "sigla".
 */
 
 const curso = 'Curso de JavaScript Roger Melo'
-const sigla = 'CJRM'
-// console.log(sigla[0] + sigla[1] + sigla[2] + sigla[3])
+const sigla = curso[0] + curso[9] + curso[20] + curso[26]
+// console.log(sigla)
 
 /*
 10
@@ -203,9 +203,9 @@ Após sobrescrever, exiba o novo valor de cada uma no console.
 */
 const serieDois = {
   nome: 'Lupin',
-  Temporadas: 3,
-  Episódios: 60,
-  Emissora: 'Netflix'
+  temporadas: 3,
+  episodios: 60,
+  emissora: 'Netflix'
 }
 
 const resposta = `
@@ -214,4 +214,4 @@ const resposta = `
   Episódios: ${serieDois.episodios}
   Emissora:${serieDois.emissora}
 `
-console.log(resposta)
+// console.log(resposta)
