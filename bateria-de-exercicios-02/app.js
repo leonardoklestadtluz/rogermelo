@@ -245,4 +245,4 @@ const propriedade = pokemon.moves[0].versionGroupDetails[1].moveLearnMethod.name
 
 const paragrafo = `Nesta bateria de exercícios vimos que marca armazena um array no qual o segundo item é ${marcas[1]}, um dos gêneros da banda ${banda.nome} é ${banda.generos[3]} e que a propriedade moveLearnMethod do Articuno contém um objeto com uma propriedade name que armazena "${propriedade}".`
 
- console.log(paragrafo)
+ // console.log(paragrafo)
