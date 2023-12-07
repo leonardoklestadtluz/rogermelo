@@ -50,7 +50,8 @@ por cem.
 Use o operador abreviado para fazer a reatribuição.
 */
 function multiplicaContador () {
-  return contador *= 100
+  contador *= 100
+  // return contador
 }
 // console.log(multiplicaContador())
 
@@ -65,7 +66,8 @@ por quatro.
 Use o operador abreviado para fazer a reatribuição.
 */
 function divideContador() {
-  return contador /= 4
+  contador /= 4
+  return contador
 }
 // console.log(divideContador())
 
@@ -104,7 +106,8 @@ function decrementaContador () {
 
 Execute a função multiplicaContador.
 */
-//console.log(multiplicaContador())
+multiplicaContador()
+// console.log(contador)
 
 
 
@@ -135,7 +138,8 @@ const maiorIgual = pegaSetenta().numero >= contador
 
 Divida o contador por quatro usando a função que você criou.
 */
-// console.log(divideContador())
+divideContador()
+// console.log(contador)
 
 
 /*
@@ -143,7 +147,8 @@ Divida o contador por quatro usando a função que você criou.
 
 Incremente o contador em um usando a função que você criou.
 */
-// console.log(incrementaContador())
+incrementaContador()
+// console.log(contador)
 
 
 /*
@@ -151,7 +156,8 @@ Incremente o contador em um usando a função que você criou.
 
 Decremente o contador em um usando a função que você criou.
 */
-// console.log(decrementaContador())
+decrementaContador()
+// console.log(contador)
 
 
 /*
