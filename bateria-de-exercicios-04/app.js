@@ -100,8 +100,14 @@ Não armazene os retornos da invocação de pegaObj em consts.
 A invocação da função que você criou no exercício 01 deve 
 retornar 12.
 */
-
-
+const pegaObj = () => {
+  const arr = [
+    {numero: 2},
+    {numero: 4},
+    {numero: 6}
+  ]
+}
+// console.log('Resultado:', multiplicar(2, 6))
 
 /*
 06
@@ -109,7 +115,10 @@ retornar 12.
 Crie uma função pegaRespostasUsuario que retorna um array com os 
 itens 'A', 'B', 'A' e 'D'.
 */
-
+const pegaRespostasUsuario = () => {
+  return respostas = ['A', 'B', 'A', 'D']
+}
+// console.log(pegaRespostasUsuario())
 
 
 /*
