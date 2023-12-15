@@ -118,7 +118,7 @@ itens 'A', 'B', 'A' e 'D'.
 const pegaRespostasUsuario = () => {
   return respostas = ['A', 'B', 'A', 'D']
 }
-// console.log(pegaRespostasUsuario())
+// console.log(pegaRespostasUsuario()[3])
 
 
 /*
@@ -128,23 +128,37 @@ Crie uma função pegaPontuacao que contém um parâmetro
 respostasUsuario.
 
 Na primeira linha da função, crie uma const que armazena o último 
-item do array que você declarou no exercício acima. Armazene o 
-item usando o parâmetro respostasUsuario e sintaxe de colchetes. 
-Não invoque a função que você criou no exercício anterior. 
+item do array que você declarou no exercício acima. 
+
+Armazene o item usando o parâmetro respostasUsuario e sintaxe de colchetes. Não invoque a função que você criou no exercício anterior. 
 
 Abaixo da const, crie uma let pontuacao que recebe zero. 
 
 Se a const que você declarou na primeira linha da função é igual 
-a 'A', atribua a pontuacao o valor que ela tem somado a 50.
+a 'A', atribua à pontuacao o valor que ela tem somado a 50.
 
-Senão, se a const é igual a 'C', atribua a pontuacao o valor que 
+Senão, se a const é igual a 'C', atribua à pontuacao o valor que 
 ela tem somado a 25.
 
 Senão, atribua a pontuacao o valor que ela tem somado a 100.
 
 Na última linha dentro do bloco da função, retorne pontuacao.
 */
+// const pegaPontuacao = (respostasUsuario) => {
+//   const ultimoItemArray = pegaRespostasUsuario(respostasUsuario)[3]
+//   let pontuacao = 0
 
+//   if (respostasUsuario === 'A') {
+//     ultimoItemArray += 50
+//   } else if (ultimoItemArray === 'C') {
+//     pontuacao += 25
+//   } else {
+//     pontuacao += 100
+//   }
+  
+//   return pontuacao
+// }
+// console.log(pegaPontuacao())
 
 
 /*
@@ -157,6 +171,9 @@ Invoque pegaPontuacao e passe respostasUsuario como argumento.
 
 A invocação de pegaPontuacao deve retornar 100.
 */
+const respostasUsuario = pegaRespostasUsuario()
+// pegaPontuacao(respostasUsuario)
+// console.log('Resultado:', pegaPontuacao())
 
 
 
@@ -175,3 +192,17 @@ else if ou else.
 O único requisito para você usar return é ele estar dentro de uma 
 função.
 */
+const pegaPontuacao = (respostasUsuario) => {
+  const ultimoItemArray = pegaRespostasUsuario(respostasUsuario)[3]
+  
+  if (respostasUsuario === 'A') {
+    return pontuacao = 50
+  } 
+  
+  if (ultimoItemArray === 'C') {
+    return pontuacao = 25
+  } 
+
+  return  pontuacao = 100
+}
+console.log('Resultado:', pegaPontuacao())
