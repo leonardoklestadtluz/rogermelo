@@ -76,7 +76,7 @@ retornar 27.
 const pegaNumerosImpares = () => {
   return arr = [5, 3, 9]
 }
-// console.log('Resultado:', multiplicar(3, 9))
+ // console.log('Resultado:', multiplicar(pegaNumerosImpares()[1], pegaNumerosImpares()[2]))
 
 
 /*
@@ -100,14 +100,12 @@ Não armazene os retornos da invocação de pegaObj em consts.
 A invocação da função que você criou no exercício 01 deve 
 retornar 12.
 */
-const pegaObj = () => {
-  const arr = [
+const pegaObj = () => [
     {numero: 2},
     {numero: 4},
     {numero: 6}
-  ]
-}
-// console.log('Resultado:', multiplicar(2, 6))
+]
+// console.log('Resultado:', multiplicar(pegaObj()[0].numero, pegaObj()[2].numero))
 
 /*
 06
@@ -145,7 +143,7 @@ Senão, atribua a pontuacao o valor que ela tem somado a 100.
 Na última linha dentro do bloco da função, retorne pontuacao.
 */
 // const pegaPontuacao = (respostasUsuario) => {
-//   const ultimoItemArray = pegaRespostasUsuario(respostasUsuario)[3]
+//   const ultimoItemArray = respostasUsuario[3]
 //   let pontuacao = 0
 
 //   if (respostasUsuario === 'A') {
@@ -196,13 +194,13 @@ const pegaPontuacao = (respostasUsuario) => {
   const ultimoItemArray = pegaRespostasUsuario(respostasUsuario)[3]
   
   if (respostasUsuario === 'A') {
-    return pontuacao = 50
+    return 50
   } 
   
   if (ultimoItemArray === 'C') {
-    return pontuacao = 25
+    return 25
   } 
 
-  return  pontuacao = 100
+  return 100
 }
 console.log('Resultado:', pegaPontuacao())
