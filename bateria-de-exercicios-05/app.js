@@ -28,8 +28,8 @@ const objs = [
   { x: 5, y: 6 },
   { x: 7, y: 8 }
 ]
+// console.log(objs[3].x)
 
-objs[4].x
 
 /*
 02
@@ -41,18 +41,17 @@ Faça os 2 únicos ajustes necessários para consertar o erro.
 
 Após consertar, a expressão deve retornar o caractere w.
 */
-
 const obj = {
   x: () => 'y',
   y: function () { 
-    'w'
+    return 'w'
   },
   w () { 
     return 'x'
   }
 }
+// console.log(obj.y())
 
-obj.z()
 
 /*
 03
@@ -65,6 +64,13 @@ ser um valor diferente do anterior.
 
 Faça com que uma das invocações retorne true.
 */
+const ehNull = (arg) => {
+  return arg === null
+}
+// console.log(ehNull(1))
+// console.log(ehNull(null))
+// console.log(ehNull(2))
+
 
 /*
 04
@@ -81,6 +87,15 @@ preenchidos, a função deve retornar a string abaixo:
 3. O retorno da função deve ser a multiplicação dos 3 
 argumentos.
 */
+const funcao = (arg1, arg2, arg3) => {
+  if (arg1 === undefined || arg2 === undefined || arg3 === undefined) {
+    return 'Insira todos os argumentos!'
+  }
+  return arg1 * arg2 * arg3
+}
+// console.log(funcao())
+// console.log(funcao(1, 2, 3))
+
 
 /*
 05
@@ -98,22 +113,29 @@ Não mexa na invocação da função. Sua refatoração deve
 envolver apenas as linhas de código dentro do bloco da 
 função. 
 */
-
 const y = w => {
-  if (w[2] === false) {
-    if ('b' === w[0]) {
-      if (w[1] === 3) {
-        // console.log('Executou if!')
-      }
-    }
+  if (w[2] === false && 'b' === w[0] && w[1] === 3) {
+    return console.log('Executou if!')
   }
+
+
+  // if (w[2] === false) {
+  //   if ('b' === w[0]) {
+  //     if (w[1] === 3) {
+  //       console.log('Executou if!')
+  //     }
+  //   }
+  // }
 }
 
 const a = 'b'
 const b = false
 const c = 3
 
-y([a, c, b])
+// y([a, c, b])
+
+
+
 
 /*
 06
@@ -137,6 +159,27 @@ false.
 6. E ainda, se nenhuma das condições acima forem atendidas, 
 retorne null.
 */
+const funcao2 = (arg4, arg5, arg6) => {
+  // if (arg4 !== undefined || arg5 === undefined || arg6 === undefined) {
+  //   return arg4
+  // }
+
+  // if (arg4 === undefined && arg5 !== undefined && arg6 !== undefined) {
+  //   return arg5 + arg6
+  // }
+
+  if (arg4 !== undefined && arg5 !== undefined && arg6 !== undefined) {
+    return arg4 + arg6
+  }
+
+  if (arg4 === undefined && arg5 === undefined && arg6 === undefined) {
+    return false
+  }
+
+  return null
+}
+// console.log(funcao2(1,57,0))
+
 
 /*
 07
@@ -148,3 +191,7 @@ Invoque a função acima testando as possibilidades abaixo:
 - Com dois argumentos;
 - Com três argumentos.
 */
+console.log(funcao2())
+console.log(funcao2(1))
+console.log(funcao2(1,2))
+console.log(funcao2(1,2,3))
