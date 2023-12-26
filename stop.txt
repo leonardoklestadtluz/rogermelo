@@ -1,7 +1,1 @@
-Bateria 05
-
-<<<<<<< HEAD
-https://www.youtube.com/watch?v=ABFNCy6t_oY&list=PLpSJMw6H4PFPTcO3pXPi6GBLcX5_8cFJY&index=23
-=======
-https://www.youtube.com/watch?v=ABFNCy6t_oY&list=PLpSJMw6H4PFPTcO3pXPi6GBLcX5_8cFJY&index=23
->>>>>>> b1e80889eb7e29256e06a9cb664b9b3b4def94b6
+https://www.youtube.com/watch?v=8-fm_oor8Zo&list=PLpSJMw6H4PFPTcO3pXPi6GBLcX5_8cFJY&index=24

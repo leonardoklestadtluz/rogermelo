@@ -64,9 +64,8 @@ ser um valor diferente do anterior.
 
 Faça com que uma das invocações retorne true.
 */
-const ehNull = (arg) => {
-  return arg === null
-}
+const ehNull = (arg) => arg === null
+// console.log(ehNull())
 // console.log(ehNull(1))
 // console.log(ehNull(null))
 // console.log(ehNull(2))
@@ -87,14 +86,16 @@ preenchidos, a função deve retornar a string abaixo:
 3. O retorno da função deve ser a multiplicação dos 3 
 argumentos.
 */
-const funcao = (arg1, arg2, arg3) => {
+const multiplicar = (arg1, arg2, arg3) => {
   if (arg1 === undefined || arg2 === undefined || arg3 === undefined) {
     return 'Insira todos os argumentos!'
   }
   return arg1 * arg2 * arg3
 }
-// console.log(funcao())
-// console.log(funcao(1, 2, 3))
+// console.log(multiplicar())
+// console.log(multiplicar(1))
+// console.log(multiplicar(1, 2))
+// console.log(multiplicar(1, 2, 3))
 
 
 /*
@@ -114,18 +115,13 @@ envolver apenas as linhas de código dentro do bloco da
 função. 
 */
 const y = w => {
-  if (w[2] === false && 'b' === w[0] && w[1] === 3) {
+  const ehIgualFalse = w[2] === false
+  const ehIgualB = 'b' === w[0]
+  const ehIgual3 = w[1] === 3
+  
+  if (ehIgualFalse && ehIgualB && ehIgual3) {
     return console.log('Executou if!')
   }
-
-
-  // if (w[2] === false) {
-  //   if ('b' === w[0]) {
-  //     if (w[1] === 3) {
-  //       console.log('Executou if!')
-  //     }
-  //   }
-  // }
 }
 
 const a = 'b'
@@ -133,8 +129,6 @@ const b = false
 const c = 3
 
 // y([a, c, b])
-
-
 
 
 /*
@@ -191,7 +185,7 @@ Invoque a função acima testando as possibilidades abaixo:
 - Com dois argumentos;
 - Com três argumentos.
 */
-console.log(funcao2())
-console.log(funcao2(1))
-console.log(funcao2(1,2))
-console.log(funcao2(1,2,3))
+// console.log(funcao2())
+// console.log(funcao2(1))
+// console.log(funcao2(1,2))
+// console.log(funcao2(1,2,3))
