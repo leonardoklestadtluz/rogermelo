@@ -154,13 +154,13 @@ false.
 retorne null.
 */
 const funcao2 = (arg4, arg5, arg6) => {
-  // if (arg4 !== undefined || arg5 === undefined || arg6 === undefined) {
-  //   return arg4
-  // }
+  if (arg4 !== undefined && arg5 === undefined && arg6 === undefined) {
+    return arg4
+  }
 
-  // if (arg4 === undefined && arg5 !== undefined && arg6 !== undefined) {
-  //   return arg5 + arg6
-  // }
+  if (arg4 !== undefined && arg5 !== undefined && arg6 === undefined) {
+    return arg4 + arg5
+  }
 
   if (arg4 !== undefined && arg5 !== undefined && arg6 !== undefined) {
     return arg4 + arg6
@@ -172,8 +172,11 @@ const funcao2 = (arg4, arg5, arg6) => {
 
   return null
 }
-// console.log(funcao2(1,57,0))
-
+console.log(funcao2())
+console.log(funcao2(57))
+console.log(funcao2(1, 2))
+console.log(funcao2(1, 2, 3))
+console.log(funcao2(1, undefined, 5))
 
 /*
 07
