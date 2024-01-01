@@ -172,11 +172,11 @@ const funcao2 = (arg4, arg5, arg6) => {
 
   return null
 }
-console.log(funcao2())
-console.log(funcao2(57))
-console.log(funcao2(1, 2))
-console.log(funcao2(1, 2, 3))
-console.log(funcao2(1, undefined, 5))
+// console.log(funcao2())
+// console.log(funcao2(57))
+// console.log(funcao2(1, 2))
+// console.log(funcao2(1, 2, 3))
+// console.log(funcao2(1, undefined, 5))
 
 /*
 07
