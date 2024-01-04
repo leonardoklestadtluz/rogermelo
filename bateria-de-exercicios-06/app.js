@@ -25,9 +25,9 @@ invocação da função eUndefined.
 const eUndefined = arg => arg === undefined
 
 const somar = (arg1, arg2, arg3) => {
-  const temSoArg1 = eUndefined(arg1) !== undefined && eUndefined(arg2) && eUndefined(arg3)
-  const temSoArg1E2 = eUndefined(arg1) !== undefined && eUndefined(arg2) !== undefined && eUndefined(arg3)
-  const temTodosArgs = eUndefined(arg1) !== undefined && eUndefined(arg2) !== undefined && eUndefined(arg3) !== undefined
+  const temSoArg1 = !eUndefined(arg1) && eUndefined(arg2) && eUndefined(arg3)
+  const temSoArg1E2 = !eUndefined(arg1) && !eUndefined(arg2) && eUndefined(arg3)
+  const temTodosArgs = !eUndefined(arg1) && !eUndefined(arg2) && !eUndefined(arg3)
   const temNenhumArg = eUndefined(arg1) && eUndefined(arg2) && eUndefined(arg3)
 
   if (temSoArg1) {
@@ -82,18 +82,18 @@ const concursos = [
 ]
 
 const pegaNomeConcurso = (id) => {
-  const nomeConcurso = concursos[id];
-  
   for (let i = 0; i < concursos.length; i++) {
-    if (id === concursos[id]) {
-      return nomeConcurso
-    } else {
-      'Concurso não encontrado'
-    }
+    if (id === concursos[i].id) {
+      return concursos[i].nome
+    } 
   }
-  return nomeConcurso
+  return 'Concurso não encontrado'
 }
-console.log(pegaNomeConcurso('ysdyhsa8a'))
+
+for (let i = 0; i < concursos.length; i++) {
+  //console.log(pegaNomeConcurso(concursos[i].id))
+}
+// console.log(pegaNomeConcurso())
 
 
 /*
@@ -124,7 +124,6 @@ Dica:
 Para obter a média, basta dividir a soma total dos custos 
 pela quantidade de meses.
 */
-
 const custos = [
   { mes: 'janeiro', custoTotal: 5672 },
   { mes: 'fevereiro', custoTotal: 2357 },
@@ -132,15 +131,19 @@ const custos = [
   { mes: 'abril', custoTotal: 6325 },
   { mes: 'maio', custoTotal: 6748 },
 ]
-const mediaTotalCustos = (custos) => {
-  
-  for (let i = 0; i < custos.length; i++) {
-    const media = custos[i] / 5
-    return media
-  }
-}
-console.log(mediaTotalCustos())
 
+const mediaTotalCustos = custos => {
+  let soma = 0
+  for (let i = 0; i < custos.length; i++) {
+    soma += custos[i].custoTotal
+  }
+  return soma / custos.length
+}
+const frase = `A média da função é: ${mediaTotalCustos(custos)}`
+// console.log(frase)
+
+
+ 
 /*
 05
 
@@ -152,8 +155,22 @@ A função deve retornar um array.
 
 Teste a função utilizando o array abaixo.
 */
-
 const palavras = ['ovo', 'áudio', 'oi', 'telefones', 'ovni']
+
+const filtraPalavras = palavras => {
+  
+  let filtradas = []
+  
+  for (let i = 0; i < palavras.length; i++) {
+    if (palavras[i].length > 3) {
+      filtradas.push(palavras[i])
+    }    
+  }
+  return filtradas
+}
+console.log(filtraPalavras(palavras))
+
+
 
 /*
 06
@@ -177,8 +194,8 @@ const dobrar = numeros => {
 
   for (let i = 0; i < numeros.length; i++) {
     numerosDobrados.push(numeros[i] * 2)
-    return numerosDobrados
   }
+  return numerosDobrados
 }
 
-// console.log(dobrar([1, 2, 3]))
+ // console.log(dobrar([1, 2, 3]))
