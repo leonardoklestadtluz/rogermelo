@@ -19,9 +19,7 @@ A função deve retornar a string 'Tá certo?'.
 */
 
 const consertaPalavra = str => {
-  str[3] = 'c'
-
-  return str
+  return str[3] = 'Tá certo'
 }
 // console.log(consertaPalavra('Tá serto?'))
 
