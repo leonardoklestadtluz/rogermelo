@@ -18,9 +18,7 @@ palavra "certo" ao invés de "serto".
 A função deve retornar a string 'Tá certo?'.
 */
 
-const consertaPalavra = str => {
-  return str[3] = 'Tá certo'
-}
+const consertaPalavra = str => str[3] = 'Tá certo'
 // console.log(consertaPalavra('Tá serto?'))
 
 
@@ -37,17 +35,15 @@ Use as invocações abaixo da função para testá-la.
 const eUndefined = arg => arg === undefined
 
 const multiplicar = (a, b, c) => {
-  if (eUndefined(a) || eUndefined(b) || eUndefined(c)) {
-    return 'Insira todos os argumentos!'
-  }
-
+  const temNenhumArg = eUndefined(a) || eUndefined(b) || eUndefined(c)
+  if (temNenhumArg) return 'Insira todos os argumentos!'
   return a * b * c
 }
 
-multiplicar()
-multiplicar(1)
-multiplicar(1, 2)
-multiplicar(1, 2, 3)
+// console.log(multiplicar())
+// console.log(multiplicar(1))
+// console.log(multiplicar(1, 2))
+// console.log(multiplicar(1, 2, 3))
 
 /*
 03
@@ -98,6 +94,7 @@ const somar = (arg1, arg2, arg3) => {
 // console.log('somar():', somar())
 // console.log('somar(undefined, 1, 2):', somar(undefined, 1, 2))
 
+
 /*
 04
 
@@ -115,14 +112,18 @@ Você pode substituir o for loop.
 const dobrar = numeros => {
   const numerosDobrados = []
 
-  for (let i = 0; i < numeros.length; i++) {
+  numerosDobrados.forEach((numeroDobrado) => {
     numerosDobrados.push(numeros[i] * 2)
-  }
+  })
 
-  return numerosDobrados
+  // for (let i = 0; i < numeros.length; i++) {
+  //   numerosDobrados.push(numeros[i] * 2)
+  // }
+
+  return numeros
 }
 
-dobrar([1, 2, 3])
+console.log(dobrar([1, 2, 3]))
 
 /* 
 05
