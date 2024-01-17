@@ -18,8 +18,9 @@ palavra "certo" ao invés de "serto".
 A função deve retornar a string 'Tá certo?'.
 */
 
-const consertaPalavra = str => str[3] = 'Tá certo'
-// console.log(consertaPalavra('Tá serto?'))
+// const consertaPalavra = str => str[3] = 'Tá certo'
+const consertaPalavra = str => str.replace('serto', 'certo') 
+//console.log(consertaPalavra('Tá serto?'))
 
 
 
@@ -32,13 +33,10 @@ linhas mas continue funcionando como já está.
 Use as invocações abaixo da função para testá-la. 
 */
 
-const eUndefined = arg => arg === undefined
 
-const multiplicar = (a, b, c) => {
-  const temNenhumArg = eUndefined(a) || eUndefined(b) || eUndefined(c)
-  if (temNenhumArg) return 'Insira todos os argumentos!'
-  return a * b * c
-}
+
+const multiplicar = (a, b, c) => [a, b, c]
+  .includes(undefined) ? 'Insira todos os argumentos!' : a * b * c
 
 // console.log(multiplicar())
 // console.log(multiplicar(1))
@@ -63,11 +61,13 @@ Você pode usar outra forma de verificar se todos os
 argumentos são undefined.
 */
 
+const eUndefined = arg => arg === undefined
+
 const somar = (arg1, arg2, arg3) => {
   const temSoArg1 = !eUndefined(arg1) && eUndefined(arg2) && eUndefined(arg3)
   const temSoArg1E2 = !eUndefined(arg1) && !eUndefined(arg2) && eUndefined(arg3)
   const temTodosArgs = !eUndefined(arg1) && !eUndefined(arg2) && !eUndefined(arg3)
-  const temNenhumArg = eUndefined(arg1) && eUndefined(arg2) && eUndefined(arg3)
+  const temNenhumArg = [arg1, arg2, arg3].every(eUndefined)
 
   if (temSoArg1) {
     return arg1
@@ -111,19 +111,12 @@ Você pode substituir o for loop.
 
 const dobrar = numeros => {
   const numerosDobrados = []
-
-  numerosDobrados.forEach((numeroDobrado) => {
-    numerosDobrados.push(numeros[i] * 2)
-  })
-
-  // for (let i = 0; i < numeros.length; i++) {
-  //   numerosDobrados.push(numeros[i] * 2)
-  // }
-
-  return numeros
+  numeros.forEach((numero) => numerosDobrados.push(numero * 2))
+  return numerosDobrados
 }
+//  console.log(dobrar([1, 2, 3]))
+//  console.log(dobrar([4, 5, 6]))
 
-console.log(dobrar([1, 2, 3]))
 
 /* 
 05
