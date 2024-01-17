@@ -134,22 +134,10 @@ continuar retornando true.
 
 const versaoOficial = 7
 
-const saoMesmaVersao = obj => {
-  let mesmaVersao = true
+const saoMesmaVersao = obj => obj.versoes.every(arr => arr[0] === versaoOficial)
 
-  obj.versoes.forEach(arrVersao => {
-    const versao = arrVersao[0]
-
-    if (versao !== versaoOficial) {
-      mesmaVersao = false
-    }
-  })
-
-  return mesmaVersao
-}
-
-saoMesmaVersao({ versoes: [[7], [8], [9]]})
-saoMesmaVersao({ versoes: [[7], [7], [7]]})
+// console.log(saoMesmaVersao({ versoes: [[7], [8], [9]]}))
+// console.log(saoMesmaVersao({ versoes: [[7], [7], [7]]}))
 
 /*
 06
@@ -175,6 +163,9 @@ const arquivos = [
   ...perigo.git.arquivosDeletados,
   ...perigo.git.arquivosModificados
 ]
+const saoArquivosJs = arquivos.every(arquivo => arquivo.includes('js'))
+// console.log(saoArquivosJs)
+
 
 /*
 07
@@ -192,6 +183,12 @@ Não use for loop nem forEach.
 const bandasAnos60 = ['Pink Floyd', 'Deep Purple', 'Black Sabbath', 'Led Zeppelin']
 const bandasAnos70 = ['Queen', 'Eagles', 'Aerosmith', 'AC/DC', 'Journey', 'Kiss']
 
+const juntar = (arr1, arr2) => [...arr1, arr2]
+const bandas = juntar(bandasAnos60, bandasAnos70)
+// console.log(bandas)
+
+
+
 /*
 08
 
@@ -206,10 +203,10 @@ O novo objeto que a função retornar deve conter as mesmas
 propriedades do objeto original (id e nome). 
 */
 
-const mudaNomeProduto = produto => {
-  produto.nome += ' - PlayStation 5'
-  return produto
-}
+const mudaNomeProduto = produto => ({
+  ...produto,
+  nome: `${produto.nome} - PlayStation 5`
+})
 
 const produtos = [
   { id: 'fd-f9g', nome: 'Marvel\'s Spider-Man 2' },
@@ -220,3 +217,7 @@ const produtos = [
 ]
 
 const novoProduto = mudaNomeProduto(produtos[0])
+
+console.log('É o mesmo objeto? ', produtos[0] === novoProduto)
+console.log('Objeto original: ', produtos[0])
+console.log('Novo objeto: ', novoProduto)
