@@ -110,6 +110,9 @@ Evite a repetição de "arr[index]" em seu código.
 
 const objs = [{ id: 3, code: 31 }, { id: 7, code: 21 }]
 
+const multiply = ([ { id }, { code } ]) => id * code
+// console.log(`Resultado: ${multiply(objs)}`)
+
 
 /*
 04
@@ -129,11 +132,11 @@ const getfruitBenefits = fruit => {
     banana: 'Auxilia a regular o sistema nervoso e o aparelho digestivo.',
     uva: 'Rica em carboidratos, altamente energética.'
   }
-
-  return fruits.fruit || 'Não há informações da fruta =/'
+  return fruits[fruit] || 'Não há informações da fruta =/'
 }
-
 const benefits = getfruitBenefits('uva')
+// console.log(`Benefícios: ${benefits}`)
+
 
 /*
 05
@@ -158,7 +161,7 @@ const updateInfo = product => {
   const action = name.includes('size-') ? 'UPDATE_SIZE' : 'UPDATE_FIELD'
   const fieldName = name.includes('size-') ? name.replace('size-', '') : name
 
-  return { type: action, payload: { fieldName: value } }
+  return { type: action, payload: { [fieldName]: value } }
 }
 
 const product = updateInfo({ 
@@ -167,6 +170,8 @@ const product = updateInfo({
     value: 'Jaqueta Trucker Jeans Com Recortes E Forro De Sherpa Azul Claro' 
   }
 })
+// console.log(product)
+
 
 /*
 06
@@ -177,22 +182,16 @@ fizemos anteriormente.
 Renomeie o que está em português para inglês.
 */
 
-const pegaRespostasUsuario = () => ['A', 'B', 'A', 'D']
+const getAnswersUser = () => ['A', 'B', 'A', 'D']
 
-const pegaPontuacao = respostasUsuario => {
-  const ultimaResposta = respostasUsuario[3]
-
-  if (ultimaResposta === 'A') {
-    return 50
-  } else if (ultimaResposta === 'C') {
-    return 25
-  } else {
-    return 100
-  }
+const getScore = userResponses => {
+  const lastAnswer = userResponses[userResponses.lenght - 1]
+  return { A: 50, C: 25 }[lastAnswer] || 100
 }
-
-const respostasUsuario = pegaRespostasUsuario()
-const pontuacao = pegaPontuacao(respostasUsuario)
+const userResponses = getAnswersUser()
+const score = getScore(userResponses)
+console.log(userResponses)
+console.log(score)
 
 /*
 07
